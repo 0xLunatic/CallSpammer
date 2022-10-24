@@ -13,7 +13,7 @@ $$\   $$ |$$  _$$<  $$   ____|$$ |  $$ | $$ |$$\ $$ | $$  $$<  $$ |$$ |  $$ |$$ 
                               \__|                                                                             
 \n\n";
 
-function spamCall($api, $nomer, $jumlah)
+function spamCall($api, $nomer, $jumlah, $delay)
 {
     $url = "https://spamertelpon.herokuapp.com/v1?key=" . $api . "&target=" . $nomer;
     $loop = 0;
@@ -27,9 +27,12 @@ function spamCall($api, $nomer, $jumlah)
         if ($res['status'] != "true") {
             echo "Minimal beli Api Key! \n";
         } else {
-            echo "Spam ke " . $loop + 1 . " berhasil dikirim! \n";
+            echo "\n";
+            echo $nomer . " Successfully sended by " . $loop + 1 . " times\n";
+            echo "Please Increase Your Delay to Prevent Error!";
+            echo "\n";
         }
-        sleep(30);
+        sleep($delay);
         $loop++;
     }
 }
@@ -40,5 +43,8 @@ echo "Masukan Jumlah : ";
 $jumlah = trim(fgets(STDIN));
 echo "Masukan Key : ";
 $key = trim(fgets(STDIN));
+echo "Masukkan Delay :";
+$delay = trim(fgets(STDIN));
 
-spamCall($key, $nomor, $jumlah);
+
+spamCall($key, $nomor, $jumlah, $delay);

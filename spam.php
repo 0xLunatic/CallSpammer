@@ -15,7 +15,7 @@ $$\   $$ |$$  _$$<  $$   ____|$$ |  $$ | $$ |$$\ $$ | $$  $$<  $$ |$$ |  $$ |$$ 
 
 function spamCall($api, $nomer, $jumlah)
 {
-    $url = "https://spamertelpon.herokuapp.com/?key=" . $api . "&nohp=" . $nomer;
+    $url = "https://spamertelpon.herokuapp.com/v1?key=" . $api . "&target=" . $nomer;
     $loop = 0;
     while ($loop < $jumlah) {
         $curl = curl_init();
@@ -27,7 +27,7 @@ function spamCall($api, $nomer, $jumlah)
         if ($res['status'] !== "success") {
             echo "Minimal beli Api Key! \n";
         } else {
-            echo "Spam ke " . $loop+1 . " berhasil dikirim! \n";
+            echo "Spam ke " . $loop . " berhasil dikirim! \n";
         }
         sleep(30);
         $loop++;

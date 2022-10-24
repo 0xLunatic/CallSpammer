@@ -24,7 +24,7 @@ function spamCall($api, $nomer, $jumlah)
         $response = curl_exec($curl);
         curl_close($curl);
         $res = json_decode($response, true);
-        if ($res['status'] !== "success") {
+        if ($res['status'] != "true") {
             echo "Minimal beli Api Key! \n";
         } else {
             echo "Spam ke " . $loop . " berhasil dikirim! \n";

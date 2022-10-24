@@ -27,7 +27,7 @@ function spamCall($api, $nomer, $jumlah)
         if ($res['status'] != "true") {
             echo "Minimal beli Api Key! \n";
         } else {
-            echo "Spam ke " . $loop . " berhasil dikirim! \n";
+            echo "Spam ke " . $loop + 1 . " berhasil dikirim! \n";
         }
         sleep(30);
         $loop++;

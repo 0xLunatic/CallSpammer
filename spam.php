@@ -17,8 +17,9 @@ function spamCall($api, $nomer, $jumlah, $delay)
 {
     $url = "https://spamertelpon.herokuapp.com/v1?key=" . $api . "&target=" . $nomer;
     $loop = 0;
+    $total = $jumlah;
     while ($loop < $jumlah) {
-        $total = $jumlah - 1;
+        $total--;
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);

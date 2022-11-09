@@ -20,6 +20,7 @@ function spamCall($api, $nomer, $jumlah, $delay)
     $total = $jumlah;
     while ($loop < $jumlah) {
         $total--;
+        $loop++;
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -30,12 +31,11 @@ function spamCall($api, $nomer, $jumlah, $delay)
             echo "Minimal beli Api Key! \n";
         } else {
             echo "\n";
-            echo $nomer . " Berhasil mengirim " . $loop + 1 . " kali\n";
+            echo $nomer . " Berhasil mengirim " . $loop . " kali\n";
             echo "Tersisa sebanyak " . $total . " lagi!";
             echo "\n";
         }
         sleep($delay);
-        $loop++;
     }
 }
 
